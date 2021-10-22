@@ -54,7 +54,7 @@ function AuthProvider({children}: AuthProviderProps) {
       
       const authSessionResponse = await AuthSessions.startAsync({ authUrl }) as AuthorizationResponse
 
-      if(authSessionResponse.type === 'sucess' && authSessionResponse.params.error !== 'access_denied') {
+      if(authSessionResponse.type === 'success' && authSessionResponse.params.error !== 'access_denied') {
         const authResponse = await api.post('/authenticate', { code: authSessionResponse.params.code})
         console.log(authResponse)
         const { user, token} = authResponse.data as AuthResponse;
